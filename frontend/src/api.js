@@ -1,8 +1,11 @@
 import axios from "axios"
 import { ACCESS_TOKEN } from "./constants"
 
+const apiUrl = "/choreo-apis/djangoreact/backend-fe/v1"
+
 const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL // when we start using this api, we have setup the base url here, linked from the .env
+    // when we start using this api, we have setup the base url here, linked from the .env OR we can import the backend choreo link if it exists!
+    baseURL: import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL : apiUrl,
 })
 
 api.interceptors.request.use(
